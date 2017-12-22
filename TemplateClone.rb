@@ -80,7 +80,7 @@ end
 
 password = ENV['API_PASS']
 user = ENV['API_USER']
-uri = ENV['GO_SERVER_URL'] + "api/admin/config.xml"
+uri = ENV['GO_SERVER_URL'].gsub(/\/*$/, "") + "/api/admin/config.xml"
 
 goConfigObj = GoConfig.new(uri, user, password)
 goConfigObj.cloneTemplate(ENV['SOURCE_TEMPLATE'], ENV['DESTINATION_TEMPLATE'])
